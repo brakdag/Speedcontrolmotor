@@ -1,0 +1,4 @@
+Speedcontrolmotor KEYWORD1
+check_sensors     KEYWORD2
+setSensorMAX	  KEYWORD2
+getRevoluciones   KEYWORD2
