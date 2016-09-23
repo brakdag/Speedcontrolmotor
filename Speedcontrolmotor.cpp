@@ -4,15 +4,15 @@ Creado por Gustavo David Ferreyra, Setiembre, 2016. Versión de dominio público.
 */
 #include "Arduino.h"
 #include "Speedcontrolmotor.h"
-
-Speedcontrolmotor::Speedcontrolmotor(int pinMotor,int pinSensor, int init_voltage)
+/* Inicia el funcionamiento de un motor DC, pinMotor es una salida
+PWM de arduino que permite controlar la potencia del motor.
+*/
+Speedcontrolmotor::Speedcontrolmotor(int pinMotor, int init_voltage)
 {
    _tension_motor= init_voltage;
    _pinMotor = pinMotor;
-   _pinSensor = pinSensor;
-
- pinMode(_pinMotor, OUTPUT);
-
+    pinMode(_pinMotor, OUTPUT);
+    analogWrite(_pinMotor,_tension_motor);
 }
 
 void Speedcontrolmotor::setVoltageMotor(int valor){
@@ -29,14 +29,14 @@ void Speedcontrolmotor::setSensorMAX(int valor)
 	_sensorMaximo =valor;
 }
 
-void Speedcontrolmotor::Iniciar(void){
-_tiempo_proximo = millis()+_tiempo_intervalo;
-analogWrite(_pinMotor,_tension_motor);
-}
 void Speedcontrolmotor::setTiempoIntervalo(int valor)
 {
 	_tiempo_intervalo = valor;
 
+}
+void Speedcontrolmotor::revolucion(void)
+{
+	_revoluciones++;
 }
 
 

@@ -11,7 +11,8 @@ Creado por Gustavo David Ferreyra, Septiembre, 2017. Versión de dominio público.
 class Speedcontrolmotor
 {
    public:
-   Speedcontrolmotor(int pinMotor,int pinSensor, int init_voltage);
+   Speedcontrolmotor(int pinMotor, int init_voltage);
+   void revolucion();
    void check_sensors();
    void count_revolutions();
    void setSensorMAX(int valor);
@@ -21,7 +22,7 @@ class Speedcontrolmotor
    void setVoltageMotor(int valor);
    int  getRevoluciones();
    int  get_rps();
-   void Iniciar();
+
    void adaptVoltage();
 
 
